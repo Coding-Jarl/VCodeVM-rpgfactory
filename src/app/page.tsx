@@ -1,95 +1,49 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Player, Character } from '../types/rpg'
 
 export default function Home() {
+  const player1: Player = {
+    avatar: '',
+    mail: '',
+    name: 'ValhallaCode',
+  }
+  const guillaumec37 = new Character('Warthog')
+  const sevdoris = new Character('Héhé')
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main>
+      <ul>
+        <li>{player1.name}</li>
+        <li>Guillaume&apos;s name: {guillaumec37.name}</li>
+        <li>All-Win: {sevdoris.roll(-1) ? 'Success' : 'Failure'}</li>
+        <li>Easy: {sevdoris.roll(5) ? 'Success' : 'Failure'}</li>
+        <li>Hard: {sevdoris.roll(15) ? 'Success' : 'Failure'}</li>
+        <li>All-Fail: {sevdoris.roll(25) ? 'Success' : 'Failure'}</li>
+      </ul>
+      <hr />
+      <section>
+        <h2>{guillaumec37.name}</h2>
+        <h3>Stats:</h3>
+        <ul>
+          <li>STR: {guillaumec37.strBase}</li>
+          <li>DEX: {guillaumec37.dexBase} </li>
+          <li>CON: {guillaumec37.conBase} </li>
+          <li>INT: {guillaumec37.intBase} </li>
+          <li>WIS: {guillaumec37.wisBase} </li>
+          <li>CHA: {guillaumec37.chaBase} </li>
+        </ul>
+      </section>
+      <section>
+        <h2>{sevdoris.name}</h2>
+        <h3>Stats:</h3>
+        <ul>
+          <li>STR: {sevdoris.strBase}</li>
+          <li>DEX: {sevdoris.dexBase} </li>
+          <li>CON: {sevdoris.conBase} </li>
+          <li>INT: {sevdoris.intBase} </li>
+          <li>WIS: {sevdoris.wisBase} </li>
+          <li>CHA: {sevdoris.chaBase} </li>
+        </ul>
+      </section>
     </main>
   )
 }
