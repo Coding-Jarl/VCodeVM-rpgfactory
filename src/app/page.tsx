@@ -1,12 +1,17 @@
-'use client'
-import { Player, Character } from '../lib/rpg'
+import { Character } from '@/lib/rpg'
+import { Header } from '@/components/Layout/Header'
+import styles from './page.module.scss'
+import type { Player } from '@/lib/rpg'
+import type { FC } from 'react'
 
-export default function Home() {
+
+const Page: FC = () => {
   const player1: Player = {
     avatar: '',
     mail: '',
     name: 'ValhallaCode',
   }
+
   const guillaumec37 = new Character('Warthog')
   const sevdoris = new Character('Héhé')
 
@@ -16,19 +21,10 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="Header">Header</div>
-      <div className="Proficiencies">Proficiencies</div>
-      <div className="Equipments">Equipments</div>
-      <div className="Attacks">Attacks</div>
-      <div className="Features">Features</div>
-      <div className="Fluffs">Fluffs</div>
-      <div className="Values">Values</div>
-      <div className="Stats">
-        Stats
-        <input type="number" value={guillaumec37.strBase} onChange={hChangeStr} />
-      </div>
-      <div className="Skills">Skills</div>
+    <main className={styles.main}>
+      <Header />
     </main>
   )
 }
+
+export default Page
