@@ -1,0 +1,21 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "dev": {
+			"cache": false
+		},
+		"build": {
+			"outputs": [".next/**", "!.next/cache/**"],
+			"cache": true
+		},
+		"start": {
+			"cache": false
+		},
+        "lint": {
+            "outputMode": "full"
+        },
+        "lint:fix": {
+            "outputMode": "full"
+        }
+    }
+  }
