@@ -17,20 +17,28 @@ export class Die {
 }
 
 export class Character {
-  name: string
   // race: string
   // class: string
-  // lvl: number
-  // skills: any
-
+  lvl: number=1
+  
   strBase: number
   dexBase: number
   conBase: number
   intBase: number
   wisBase: number
   chaBase: number
-
+  
+  currExpPoints:number=0
   skills: Array<Skill>
+  miscProficiencies: Array<string>=["Language: Common", "Weapons: Common"]
+  
+  name: string
+  alignment:string="Neutral"
+  background: string=""
+  personnalityTraits:Array<string>=[]
+  ideals:Array<string>=[]
+  bonds:Array<string>=[]
+  flaws:Array<string>=[]
 
   constructor(name: string) {
     const d6 = new Die(6)
@@ -64,7 +72,63 @@ export class Character {
   cha() {
     return (this.chaBase - 10) / 2
   }
+  
+  saveStr(){
+    return this.str()
+  }
+  saveDex(){
+    return this.dex()
+  }
+  saveCon(){
+    return this.con()
+  }
+  saveInt(){
+    return this.int()
+  }
+  saveWis(){
+    return this.wis()
+  }
+  saveCha(){
+    return this.cha()
+  }
+  
+  proficiency(){
+    return Math.floor((this.lvl-1)/4)+2
+  }
+  skill(name:string){
+    let res=0;
+    const skill = this.skills.find((elt)=>elt.label===name)
+    if(!skill) return 0;
 
+    switch(skill.stat) {
+      case "STR":
+        res +=this.str();
+        break;
+      case "DEX":
+        res +=this.dex();
+        break;
+      case "CON":
+        res +=this.con();
+        break;
+      case "INT":
+        res +=this.int();
+        break;
+      case "WIS":
+        res +=this.wis();
+        break;
+      case "CHA":
+        res +=this.cha();
+        break;
+    }
+
+    if(skill.training)
+      res+=this.proficiency()
+    
+    return res
+  }
+  miscProficiency(name:string){
+    return this.miscProficiencies.includes(name);
+  }
   roll(threshold: number) {
     const d20 = new Die(20)
     const result = d20.roll()
@@ -98,6 +162,8 @@ export type Game = {
 export type Skill = {
   label: string
   stat: string
-  score: number
   training: boolean
 }
+
+
+
