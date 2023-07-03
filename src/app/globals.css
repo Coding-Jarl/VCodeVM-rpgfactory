@@ -105,3 +105,26 @@ a {
     color-scheme: dark;
   }
 }
+
+main {
+  height:100vh;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 0.4fr 0.9fr 1.7fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Header Header Header"
+    "Stats Values Fluffs"
+    "Skills Attacks Features"
+    "Proficiencies Equipments Features"; 
+}
+.Header { grid-area: Header; }
+.Proficiencies { grid-area: Proficiencies; }
+.Equipments { grid-area: Equipments; }
+.Attacks { grid-area: Attacks; }
+.Features { grid-area: Features; }
+.Fluffs { grid-area: Fluffs; }
+.Values { grid-area: Values; }
+.Stats { grid-area: Stats; }
+.Skills { grid-area: Skills; }
