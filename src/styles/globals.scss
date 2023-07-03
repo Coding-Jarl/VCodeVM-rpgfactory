@@ -24,4 +24,13 @@
 
 body {
   margin: 0;
+
+  a {
+    color: var(--green);
+
+    &:hover {
+      color: var(--green4);
+      text-decoration: none;
+    }
+  }
 }
