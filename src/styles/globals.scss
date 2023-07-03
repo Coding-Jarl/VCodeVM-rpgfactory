@@ -1,0 +1,36 @@
+:root {
+  --black: #8B898B;
+  --back1: #FFFFFF;
+  --black2: #DCDCDC;
+  --black3: #C5C4C5;
+  --black4: #464546;
+  --black5: #2A292A;
+  --black6: #000000;
+  --brown: #573A2D;
+  --brown1: #AB9D96;
+  --brown2: #89756C;
+  --brown3: #796157;
+  --brown4: #462e24;
+  --brown5: #2c1d17;
+  --brown6: #1a110d;
+  --green: #4A943E;
+  --green1: #C9DFC5;
+  --green2: #A5CA9F;
+  --green3: #6EA965;
+  --green4: #3B7632;
+  --green5: #254A1F;
+  --green6: #162C13;
+}
+
+body {
+  margin: 0;
+
+  a {
+    color: var(--green);
+
+    &:hover {
+      color: var(--green4);
+      text-decoration: none;
+    }
+  }
+}

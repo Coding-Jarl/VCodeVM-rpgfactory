@@ -1,12 +1,27 @@
-'use client'
-import { Player, Character } from '../lib/rpg'
+import { Character } from '@/lib/rpg'
+import {
+  Stats,
+  Values,
+  Fluffs,
+  Skills,
+  Attacks,
+  Features,
+  Proficiencies,
+  Equipments,
+} from '@/components/RPG'
+import styles from './page.module.scss'
+import type { Player } from '@/lib/rpg'
+import type { FC } from 'react'
 
-export default function Home() {
+
+const Page: FC = () => {
+  // @TODO: use react context (https://react.dev/reference/react#context-hooks)
   const player1: Player = {
     avatar: '',
     mail: '',
     name: 'ValhallaCode',
   }
+
   const guillaumec37 = new Character('Warthog')
   const sevdoris = new Character('Héhé')
 
@@ -16,19 +31,19 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="Header">Header</div>
-      <div className="Proficiencies">Proficiencies</div>
-      <div className="Equipments">Equipments</div>
-      <div className="Attacks">Attacks</div>
-      <div className="Features">Features</div>
-      <div className="Fluffs">Fluffs</div>
-      <div className="Values">Values</div>
-      <div className="Stats">
-        Stats
-        <input type="number" value={guillaumec37.strBase} onChange={hChangeStr} />
+    <main className={styles.main}>
+      <div className={styles.container}>
+          <Stats />
+          <Values />
+          <Fluffs />
+          <Skills />
+          <Attacks />
+          <Features />
+          <Proficiencies />
+          <Equipments />
       </div>
-      <div className="Skills">Skills</div>
     </main>
   )
 }
+
+export default Page
