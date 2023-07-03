@@ -19,7 +19,7 @@ export class Die {
 export class Character {
   // race: string
   // class: string
-  lvl: number=1
+  lvl=1
   
   strBase: number
   dexBase: number
@@ -28,13 +28,13 @@ export class Character {
   wisBase: number
   chaBase: number
   
-  currExpPoints:number=0
+  currExpPoints=0
   skills: Array<Skill>
   miscProficiencies: Array<string>=["Language: Common", "Weapons: Common"]
   
   name: string
-  alignment:string="Neutral"
-  background: string=""
+  alignment="Neutral"
+  background=""
   personnalityTraits:Array<string>=[]
   ideals:Array<string>=[]
   bonds:Array<string>=[]
