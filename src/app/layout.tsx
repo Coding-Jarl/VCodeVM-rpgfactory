@@ -1,6 +1,7 @@
 import font from '@/utils/font'
 import type { FC, ReactNode } from 'react'
 import '@/styles/globals.scss'
+import ThemeProviderWrapper from '@/providers/themeProvider'
 
 export const metadata = {
   title: 'RPG Factory',
@@ -14,7 +15,9 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={font.className}>
-        {children}
+        <ThemeProviderWrapper>
+          {children}
+        </ThemeProviderWrapper>
       </body>
     </html>
   )
