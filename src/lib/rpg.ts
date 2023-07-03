@@ -72,6 +72,10 @@ export class Character {
   cha() {
     return (this.chaBase - 10) / 2
   }
+
+  setStr(str:number){
+    this.strBase=str
+  }
   
   saveStr(){
     return this.str()
