@@ -29,7 +29,7 @@ export class Character {
   chaBase: number
   
   currExpPoints:number=0
-  skills: Array<Skill>
+  skills:Array<Skill>=new Array<Skill>()
   miscProficiencies: Array<string>=["Language: Common", "Weapons: Common"]
   
   name: string
@@ -40,41 +40,148 @@ export class Character {
   bonds:Array<string>=[]
   flaws:Array<string>=[]
 
-  constructor(name: string) {
-    const d6 = new Die(6)
-    this.name = name
+  constructor(name: string, old?:Character) {
+    this.name = old?.name || name
 
-    this.strBase = d6.roll() + d6.roll() + d6.roll()
-    this.dexBase = d6.roll() + d6.roll() + d6.roll()
-    this.conBase = d6.roll() + d6.roll() + d6.roll()
-    this.intBase = d6.roll() + d6.roll() + d6.roll()
-    this.wisBase = d6.roll() + d6.roll() + d6.roll()
-    this.chaBase = d6.roll() + d6.roll() + d6.roll()
+    this.strBase = old?.strBase || 10
+    this.dexBase = old?.dexBase || 10
+    this.conBase = old?.conBase || 10
+    this.intBase = old?.intBase || 10
+    this.wisBase = old?.wisBase || 10
+    this.chaBase = old?.chaBase || 10
 
-    this.skills = new Array<Skill>()
+    if(old) {
+      this.skills = old.skills
+    } else {
+      this.skills.push({
+        label:"Acrobatics", 
+        stat:"DEX", 
+        training:false
+      })
+      this.skills.push({
+        label:"Animal Handling", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Arcana", 
+        stat:"INT", 
+        training:false
+      })
+      this.skills.push({
+        label:"Athletics", 
+        stat:"STR", 
+        training:false
+      })
+      this.skills.push({
+        label:"Deception", 
+        stat:"CHA", 
+        training:false
+      })
+      this.skills.push({
+        label:"History", 
+        stat:"INT", 
+        training:false
+      })
+      this.skills.push({
+        label:"Insight", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Initimidation", 
+        stat:"CHA", 
+        training:false
+      })
+      this.skills.push({
+        label:"Investigation", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Medicine", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Nature", 
+        stat:"INT", 
+        training:false
+      })
+      this.skills.push({
+        label:"Perception", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Performance", 
+        stat:"CHA", 
+        training:false
+      })
+      this.skills.push({
+        label:"Persuasion", 
+        stat:"WIS", 
+        training:false
+      })
+      this.skills.push({
+        label:"Religion", 
+        stat:"INT", 
+        training:false
+      })
+      this.skills.push({
+        label:"Sleight of Hand", 
+        stat:"DEX", 
+        training:false
+      })
+      this.skills.push({
+        label:"Stealth", 
+        stat:"DEX", 
+        training:false
+      })
+      this.skills.push({
+        label:"Survival", 
+        stat:"WIS", 
+        training:false
+      })
+    }
   }
 
   str() {
-    return (this.strBase - 10) / 2
+    return Math.floor((this.strBase - 10) / 2)
   }
   dex() {
-    return (this.dexBase - 10) / 2
+    return Math.floor((this.dexBase - 10) / 2)
   }
   con() {
-    return (this.conBase - 10) / 2
+    return Math.floor((this.conBase - 10) / 2)
   }
   int() {
-    return (this.intBase - 10) / 2
+    return Math.floor((this.intBase - 10) / 2)
   }
   wis() {
-    return (this.wisBase - 10) / 2
+    return Math.floor((this.wisBase - 10) / 2)
   }
   cha() {
-    return (this.chaBase - 10) / 2
+    return Math.floor((this.chaBase - 10) / 2)
   }
 
-  setStr(str:number){
-    this.strBase=str
+  setStr(newValue:number){
+    this.strBase=newValue
+  }
+  setDex(newValue:number){
+    this.dexBase=newValue
+  }
+  setCon(newValue:number){
+    this.conBase=newValue
+  }
+  setInt(newValue:number){
+    this.intBase=newValue
+  }
+  setWis(newValue:number){
+    this.wisBase=newValue
+  }
+  setCha(newValue:number){
+    this.chaBase=newValue
   }
   
   saveStr(){

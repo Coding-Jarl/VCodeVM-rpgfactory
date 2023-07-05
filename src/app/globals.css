@@ -128,3 +128,7 @@ main {
 .Values { grid-area: Values; }
 .Stats { grid-area: Stats; }
 .Skills { grid-area: Skills; }
+
+.Stats label {
+  display:block;
+}
