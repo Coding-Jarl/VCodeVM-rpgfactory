@@ -1,3 +1,4 @@
+'use client'
 import { Character, STAT } from '@/lib/rpg'
 import { useCharacterStore } from '@/services/zustand/store'
 import { ChangeEvent } from 'react'
@@ -35,7 +36,6 @@ export default function Stats() {
   }
 
   if (!character) return null
-  console.log(character)
 
   return (
     <div className="Stats">

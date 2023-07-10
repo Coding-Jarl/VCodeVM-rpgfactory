@@ -1,4 +1,3 @@
-'use client'
 import Header from '@/components/Header'
 import Proficiencies from '@/components/Proficiencies'
 import Equipments from '@/components/Equipments'
